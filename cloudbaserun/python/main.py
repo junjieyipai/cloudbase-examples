@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return request.remote_addr
+    return request.remote_addr + ";" + request.environ['REMOTE_ADDR'] + ";" + request.environ['HTTP_X_FORWARDED_FOR']
     #return 'Hello World!'
 
 if __name__ == "__main__":
